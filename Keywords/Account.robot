@@ -59,3 +59,44 @@ ClickSaveButton
     Wait Until Element Is Visible    ${SaveButton}
     Click Element    ${SaveButton}
     Wait Until Element Is Visible    ${Info}
+
+ClickChangePasswordLink
+    Wait Until Element Is Visible    ${ChangePasswordLink}
+    Click Element    ${ChangePasswordLink}
+    sleep    1s
+
+EnterOldPassword
+    [Arguments]    ${pass_arg}
+    Wait Until Element Is Visible    ${OldPasswordTitle}
+    Input Password    ${OldPassword}    ${pass_arg}
+
+EnterNewPassword
+    [Arguments]    ${newpass_arg}
+    Wait Until Element Is Visible    ${NewPassword}
+    Input Password    ${NewPassword}    ${newpass_arg}
+
+EnterConfirmPassword
+    [Arguments]    ${pass_arg}
+    Wait Until Element Is Visible    ${ConfirmNewPassword}
+    Input Password    ${ConfirmNewPassword}    ${pass_arg}
+
+ClickChangePasswordButton
+    Wait Until Element Is Visible    ${ChangePasswordButton}
+    Click Element    ${ChangePasswordButton}
+    Wait Until Element Contains    ${ChangePasswordResult}    ${ChangePasswordText}
+
+ClickRewardPointsLink
+    Wait Until Element Is Visible    ${RewardPointsLink}
+    Click Element    ${RewardPointsLink}
+    Wait Until Element Contains    ${CurrentBalance}    ${CurrentBalanceText}
+    Wait Until Element Contains    ${RewardPointsHistory}    ${PointsHistoryText}
+
+ClickChangePasswordButton-Error
+    Wait Until Element Is Visible    ${ChangePasswordButton}
+    Click Element    ${ChangePasswordButton}
+    Wait Until Element Contains    ${ConfirmPasswordError}    ${ConfirmPasswordErrorText}
+
+ClickMyProductReviewsLink
+    Wait Until Element Is Visible    ${ProductReviewsLink}
+    Click Element    ${ProductReviewsLink}
+    Wait Until Element Contains    ${MyProductReviewSection}    ${MyProductReviewSectionText}

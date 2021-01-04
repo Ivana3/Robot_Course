@@ -25,3 +25,21 @@ ${CityText}       Bitola
 ${AddressText}    Karposh
 ${ZipCodeText}    7000
 ${PhoneNumberText}    047222333
+${ChangePasswordLink}    //div[@class="listbox"]/ul/li/a[@href="/customer/changepassword"]
+${OldPasswordTitle}    //div[@class="inputs"]/label[@for="OldPassword"]
+${OldPassword}    //*[@id="OldPassword"]
+${NewPassword}    //*[@id="NewPassword"]
+${ConfirmNewPassword}    //*[@id="ConfirmNewPassword"]
+${ChangePasswordButton}    //div[@class="buttons"]/input[@value="Change password"]
+${ChangePasswordResult}    //div[@class="result"]
+${ChangePasswordText}    Password was changed
+${RewardPointsLink}    //div[@class="listbox"]/ul/li/a[@href="/rewardpoints/history"]
+${CurrentBalance}    //div[@class="reward-points-overview"]/div[@class="current-balance"]
+${CurrentBalanceText}    Your current balance is 0 reward points ($0.00).
+${RewardPointsHistory}    //div[@class="section reward-points-history"]/div[@class="no-data"]
+${PointsHistoryText}    There is no balance history yet
+${ConfirmPasswordError}    //*[@id="ConfirmNewPassword-error"]
+${ConfirmPasswordErrorText}    The new password and confirmation password do not match.
+${ProductReviewsLink}    //div[@class="listbox"]/ul/li/a[@href="/customer/productreviews"]
+${MyProductReviewSection}    //div[@class="page-body"]/div[@class="no-data"]
+${MyProductReviewSectionText}    You haven't written any reviews yet

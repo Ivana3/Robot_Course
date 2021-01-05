@@ -58,3 +58,58 @@ AcceptTermOfService
     Select Checkbox    ${TermsOfService}
     sleep    1s
     Wait Until Element Is Visible    ${CheckoutButton}
+    
+FillTheRequiredFieldsWithdata
+    [Arguments]    ${email_arg}    ${phone_arg}
+    Input Text    ${BillingFirstname}    ${BillingFirstnameValue}
+    Wait Until Element Is Visible    ${BillingLastname}
+    Input Text    ${BillingLastname}    ${BillingLastnameValue}
+    Wait Until Element Is Visible    ${BillingEmail}
+    Input Text    ${BillingEmail}    ${email_arg}
+    Wait Until Element Is Visible    ${BillingCountry}
+    Select From List By Value    ${BillingCountry}    ${BillingCountryValue}
+    Wait Until Element Is Visible    ${BillingCity}
+    Input Text    ${BillingCity}    ${BillingCityText}
+    Wait Until Element Is Visible    ${BillingAddress}
+    Input Text    ${BillingAddress}    ${BillingAddressText}
+    Wait Until Element Is Visible    ${BillingZipCode}
+    Input Text    ${BillingZipCode}    ${BillingZipCodeValue}
+    Wait Until Element Is Visible    ${BillingPhoneNumber}
+    Input Text    ${BillingPhoneNumber}    ${phone_arg}
+    Wait Until Element Is Visible    ${ContinueButton}
+    Click Element    ${ContinueButton}
+
+ChooseGroundMethod
+    Wait Until Element Is Visible    ${GroundShippingMethod}
+    Click Element    ${GroundShippingMethod}
+    Wait Until Element Is Visible    ${ShippingMethodContinueButton}
+    Click Element    ${ShippingMethodContinueButton}
+    Wait Until Element Is Visible    ${PaymentMethod-1}
+
+SelectPayByCredit/DebitCard
+    Click Element    ${PaymentMethod-1}
+    Wait Until Element Is Visible    ${PaymentMethodContinueButton}
+    Click Element    ${PaymentMethodContinueButton}
+
+Don'tEnterAnyDataAndClickContinue
+    Wait Until Element Is Visible    ${PaymentInformationContinueButton}
+    Click Element    ${PaymentInformationContinueButton}
+    sleep    1s
+    Wait Until Element Contains    ${MessageError}    ${MessageErrorText}
+
+EnterInvalidDataForCreditCard
+    [Arguments]    ${cardnum_arg}    ${year_arg}    ${cardcode_arg}
+    Wait Until Element Is Visible    ${SelectCreditCard}
+    Select From List By Value    ${CreditCardType}    ${CreditCardTypeValue}
+    Wait Until Element Is Visible    ${CardHolder}
+    Input Text    ${CardHolder}    ${CardHolderName}
+    Wait Until Element Is Visible    ${CardNumber}
+    Input Text    ${CardNumber}    ${cardnum_arg}
+    Wait Until Element Is Visible    ${ExpirationDate}
+    Select From List By Value    ${ExpireMonth}    ${ExpireMonthValue}
+    Select From List By Value    ${ExpireYear}    ${year_arg}
+    Wait Until Element Is Visible    ${CardCode}
+    Input Text    ${CardCode}    ${cardcode_arg}
+    Wait Until Element Is Visible    ${PaymentInfoContinueButton}
+    Click Element    ${PaymentInfoContinueButton}
+    Wait Until Element Contains    ${MessageError}    ${MessageErrorText-1}
